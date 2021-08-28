@@ -12,6 +12,11 @@ import {
 } from 'react-native'
 // import data from '../data.json'
 
+import { PieChart } from "react-native-chart-kit";
+
+
+
+
 export default function Invest({ navigation }) {
   console.disableYellowBox = true
 
@@ -26,6 +31,57 @@ export default function Invest({ navigation }) {
         </View>
         <View style={styles.Inner2}>
           <Text style={styles.Innertitle}>투자 ETF 보유 비율</Text>
+          <PieChart
+            data={[
+              {
+                name: 'TIGER 200 IT',
+                population: 21500000,
+                color: '#55A29E',
+                legendFontColor: '#7F7F7F',
+                legendFontSize: 12,
+              },
+              {
+                name: 'KODEX 반도체',
+                population: 2800000,
+                color: '#3F7687',
+                legendFontColor: '#7F7F7F',
+                legendFontSize: 12,
+              },
+              {
+                name: 'SPY S&P 500 ETF',
+                population: 11920000,
+                color: '#285256',
+                legendFontColor: '#7F7F7F',
+                legendFontSize: 12,
+              },
+              {
+                name: 'Invesco QQQ Trust',
+                population: 8538000,
+                color: '#133130',
+                legendFontColor: '#7F7F7F',
+                legendFontSize: 12,
+              },
+            ]}
+            width={400}
+            height={200}
+            chartConfig={{
+              backgroundColor: '#1cc910',
+              backgroundGradientFrom: '#eff3ff',
+              backgroundGradientTo: '#efefef',
+              decimalPlaces: 2,
+              color: (opacity = 1) => `rgba(0, 0, 0, ${opacity})`,
+              style: {
+                borderRadius: 10,
+              },
+            }}
+            style={{
+              marginVertical: 8,
+              borderRadius: 10,
+            }}
+            accessor="population"
+            backgroundColor="transparent"
+            paddingLeft="10"
+          />
         </View>
         <View style={styles.Inner3}>
           <Text style={styles.Innertitle}>ETF 보유자산</Text>
