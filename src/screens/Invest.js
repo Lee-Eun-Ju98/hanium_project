@@ -22,7 +22,7 @@ export default function Invest({ navigation }) {
       <View style={styles.SubContainer}>
         <View style={styles.Inner1}>
           <Text style={styles.Innertitle}>총 보유자산</Text>
-          <Text style={styles.Innertitle}>10,900,000원 (+9%)</Text>
+          <Text style={styles.Innertitle2}>10,900,000원 (+9%)</Text>
         </View>
         <View style={styles.Inner2}>
           <Text style={styles.Innertitle}>투자 ETF 보유 비율</Text>
@@ -31,42 +31,30 @@ export default function Invest({ navigation }) {
           <Text style={styles.Innertitle}>ETF 보유자산</Text>
           <ScrollView style={styles.etf}>
             <TouchableOpacity style={styles.etfButton}>
-              <Text style={styles.etfText}>ETF1</Text>
+                <View style={styles.info}><Text style={styles.etfname}>TIGER 200 IT</Text>
+                <Text style={styles.percent}>17.11%</Text></View></TouchableOpacity>
+            <TouchableOpacity style={styles.etfButton}>
+                <View style={styles.info}><Text style={styles.etfname}>KODEX 반도체</Text>
+                <Text style={styles.percent}>10.35%</Text></View>
             </TouchableOpacity>
             <TouchableOpacity style={styles.etfButton}>
-              <Text style={styles.etfText}>ETF2</Text>
+                <View style={styles.info}><Text style={styles.etfname}>SPY SPDR S&P 500 ETF</Text>
+                <Text style={styles.percent}>13.05%</Text></View>
             </TouchableOpacity>
             <TouchableOpacity style={styles.etfButton}>
-              <Text style={styles.etfText}>ETF3</Text>
-            </TouchableOpacity>
-            <TouchableOpacity style={styles.etfButton}>
-              <Text style={styles.etfText}>ETF4</Text>
-            </TouchableOpacity>
-            <TouchableOpacity style={styles.etfButton}>
-              <Text style={styles.etfText}>ETF5</Text>
-            </TouchableOpacity>
-            <TouchableOpacity style={styles.etfButton}>
-              <Text style={styles.etfText}>ETF6</Text>
-            </TouchableOpacity>
-            <TouchableOpacity style={styles.etfButton}>
-              <Text style={styles.etfText}>ETF7</Text>
-            </TouchableOpacity>
-            <TouchableOpacity style={styles.etfButton}>
-              <Text style={styles.etfText}>ETF8</Text>
-            </TouchableOpacity>
-            <TouchableOpacity style={styles.etfButton}>
-              <Text style={styles.etfText}>ETF9</Text>
+                <View style={styles.info}><Text style={styles.etfname}>Invesco QQQ Trust</Text>
+                <Text style={styles.percent}>5.47%</Text></View>
             </TouchableOpacity>
           </ScrollView>
         </View>
         <View style={styles.Inner4}>
           <View style={styles.Left}>
             <Text style={styles.Innertitle}>배당금 예정일</Text>
-            <Text style={styles.Innertitle}>OOOO년 OO월 OO일</Text>
+            <Text style={styles.Innertitle2}>2021년 12월 13일</Text>
           </View>
           <View style={styles.Right}>
             <Text style={styles.Innertitle}>수수료</Text>
-            <Text style={styles.Innertitle}>0.9%</Text>
+            <Text style={styles.Innertitle2}>0.9%</Text>
           </View>
         </View>
       </View>
@@ -120,6 +108,7 @@ export default function Invest({ navigation }) {
 const styles = StyleSheet.create({
   Container: {
     flex: 1,
+    backgroundColor:'white'
   },
 
   SubContainer: {
@@ -127,33 +116,38 @@ const styles = StyleSheet.create({
   },
 
   Inner1: {
-    flex: 1,
-    borderWidth: 1,
+    flex: 1
   },
   Inner2: {
     flex: 2.5,
     borderWidth: 1,
   },
   Inner3: {
-    flex: 2.5,
-    borderWidth: 1,
+    flex: 2.5
   },
   Inner4: {
     flex: 1,
     flexDirection: 'row', // 가로 설정
+    borderWidth: 1,
   },
   Left: {
-    flex: 1,
-    borderWidth: 1,
+    flex: 1
   },
   Right: {
-    flex: 1,
-    borderWidth: 1,
+    flex: 1
   },
   Innertitle: {
-    fontSize: 18,
+    fontSize: 15,
     marginTop: 10,
     marginLeft: 10,
+    fontWeight:'700',
+    color:'gray'
+  },
+  Innertitle2: {
+    fontSize: 18,
+    textAlign:'center',
+    padding:10,
+    color:'black'
   },
 
   etf: {
@@ -161,15 +155,31 @@ const styles = StyleSheet.create({
   },
   etfButton: {
     flex: 1,
-    padding: 10,
+    padding: 5,
   },
   etfText: {
     fontSize: 12,
   },
 
+  info:{
+    flexDirection:'row'
+  },
+  etfname:{
+    fontSize:19,
+    flex:5,
+    padding:5
+  },
+  percent:{
+    fontSize:19,
+    flex:2,
+    color:'red',
+    padding:5,
+    paddingLeft:40
+  },
+
   MenuContainer: {
     flex: 1,
-    backgroundColor: 'skyblue',
+    backgroundColor: '#82CBC4',
     flexDirection: 'row',
   },
   MenuButton: {

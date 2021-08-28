@@ -66,7 +66,7 @@ export default class SellETF extends React.Component {
           style={{
             height: 80,
             minWidth: '70%',
-            backgroundColor: 'rgb(48,101,172)',
+            backgroundColor: '#82CBC4',
             justifyContent: 'center',
             paddingHorizontal: 5
           }}>

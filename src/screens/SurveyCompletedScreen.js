@@ -5,7 +5,7 @@ import firebase from 'firebase/app'
 
 
 const GREEN = 'rgba(141,196,63,1)';
-const NAVEY = 'rgb(48,101,172)';
+const COLOR = '#82CBC4';
 
 
 export default function SurveyCompletedScreen({ navigation, route, component }) {
@@ -71,7 +71,7 @@ const styles = StyleSheet.create({
         flex: 1,
         justifyContent: 'center',
         alignItems: 'center',
-        backgroundColor: NAVEY,
+        backgroundColor: COLOR,
     },
     container: {
         minWidth: '70%',

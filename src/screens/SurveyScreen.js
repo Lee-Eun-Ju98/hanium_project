@@ -3,7 +3,7 @@ import { StyleSheet, Button, ScrollView, Text, TextInput, View } from 'react-nat
 import { SimpleSurvey } from 'react-native-simple-survey';
 
 const GREEN = 'rgba(141,196,63,1)';
-const NAVEY = 'rgb(48,101,172)';
+const COLOR = '#82CBC4';
 
 const survey = [
     {
@@ -184,7 +184,7 @@ export default class SurveyScreen extends Component {
 
     constructor(props) {
         super(props);
-        this.state = { backgroundColor: NAVEY, answersSoFar: '' };
+        this.state = { backgroundColor: COLOR, answersSoFar: '' };
     }
 
     onSurveyFinished(answers) {
@@ -250,7 +250,7 @@ export default class SurveyScreen extends Component {
                 <Button
                     title={data.optionText}
                     onPress={onPress}
-                    color={isSelected ? GREEN : NAVEY}
+                    color={isSelected ? GREEN : COLOR}
                     style={isSelected ? { fontWeight: 'bold' } : {}} 
                     key={`button_${index}`}
                 />

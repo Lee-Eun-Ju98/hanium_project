@@ -159,9 +159,8 @@ const styles = StyleSheet.create({
 
   MenuContainer: {
     flex: 1.15,
-    backgroundColor: 'skyblue',
-    flexDirection: 'row',
-    borderWidth:1
+    backgroundColor: '#82CBC4',
+    flexDirection: 'row'
   },
   MenuButton: {
     flex: 1,

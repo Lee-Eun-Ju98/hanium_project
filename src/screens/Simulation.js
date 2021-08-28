@@ -12,32 +12,48 @@ export default function Simulation({navigation}) {
 
             <TouchableOpacity style={styles.Button2} onPress={()=>{navigation.navigate('SellETF')}}>
                 <Text style={styles.ButtonStyle}>매도</Text></TouchableOpacity>
+            <View style={styles.personal}><Text>SERA님의 성향 : 중립형</Text></View>
             </View>
 
             <View style={styles.SecondContainer}>
-                <View style={styles.Inner}><Text>국내 ETF 수익률 보여주기</Text></View>
-                <View style={styles.Inner}><Text>해외 ETF 수익률 보여주기</Text></View>
+            <Text style={styles.graytext}>국내 / 해외 추천 ETF Top 1 수익률 비교</Text>
+                <View style={styles.Inner}>
+                    <View style={styles.Inner2}>
+                    <Text style={styles.etfname2}>KODEX 2차전지산업</Text>
+                    <Text style={styles.percent2}>12.64%</Text>
+                    </View>
+                    <View style={styles.Inner2}>
+                    <Text style={styles.etfname2}>SPY SPDR S&P 500 ETF</Text>
+                    <Text style={styles.percent2}>11.35%</Text>
+                    </View>
+                </View>
             </View>
 
             <View style={styles.ThirdContainer}>
                 <ScrollView>
-                <TouchableOpacity style={styles.lst}><Text>국내 - 추천 ETF Top 1                                        예상 수익률</Text>
-                <View style={styles.info}><Text style={styles.etfname}>KODEX 단기채권</Text>
-                <Text style={styles.percent}>2.13%</Text></View></TouchableOpacity>
-                <TouchableOpacity style={styles.lst}><Text>국내 - 추천 ETF Top 2                                        예상 수익률</Text>
+                <TouchableOpacity style={styles.lst}><Text>국내 - 추천 ETF Top 1                                     예상 수익률</Text>
+                <Text style={styles.graytext}>긍정</Text>
                 <View style={styles.info}><Text style={styles.etfname}>KODEX 2차전지산업</Text>
                 <Text style={styles.percent}>12.64%</Text></View></TouchableOpacity>
-                <TouchableOpacity style={styles.lst}><Text>국내 - 추천 ETF Top 3                                        예상 수익률</Text>
-                <View style={styles.info}><Text style={styles.etfname}>TIGER 200 IT</Text>
+                <TouchableOpacity style={styles.lst}><Text>국내 - 추천 ETF Top 2                                     예상 수익률</Text>
+                <Text style={styles.graytext}>긍정</Text>
+                <View style={styles.info}><Text style={styles.etfname}>KODEX 반도체</Text>
                 <Text style={styles.percent}>5.96%</Text></View></TouchableOpacity>
-                <TouchableOpacity style={styles.lst}><Text>해외 - 추천 ETF Top 1                                        예상 수익률</Text>
+                <TouchableOpacity style={styles.lst}><Text>국내 - 추천 ETF Top 3                                     예상 수익률</Text>
+                <Text style={styles.graytext}>긍정</Text>
+                <View style={styles.info}><Text style={styles.etfname}>KODEX 자동차</Text>
+                <Text style={styles.percent}>2.13%</Text></View></TouchableOpacity>
+                <TouchableOpacity style={styles.lst}><Text>해외 - 추천 ETF Top 1                                      예상 수익률</Text>
+                <Text style={styles.graytext}>긍정</Text>
                 <View style={styles.info}><Text style={styles.etfname}>SPY SPDR S&P 500 ETF</Text>
                 <Text style={styles.percent}>11.35%</Text></View></TouchableOpacity>
-                <TouchableOpacity style={styles.lst}><Text>해외 - 추천 ETF Top 2                                        예상 수익률</Text>
-                <View style={styles.info}><Text style={styles.etfname}>IAU iShares Gold Trust</Text>
+                <TouchableOpacity style={styles.lst}><Text>해외 - 추천 ETF Top 2                                     예상 수익률</Text>
+                <Text style={styles.graytext}>긍정</Text>
+                <View style={styles.info}><Text style={styles.etfname}>IVV iShares Core S&P 500 ETF</Text>
                 <Text style={styles.percent}>8.02%</Text></View></TouchableOpacity>
-                <TouchableOpacity style={styles.lst}><Text>해외 - 추천 ETF Top 3                                        예상 수익률</Text>
-                <View style={styles.info}><Text style={styles.etfname}>MBB iShares MBS ETF</Text>
+                <TouchableOpacity style={styles.lst}><Text>해외 - 추천 ETF Top 3                                     예상 수익률</Text>
+                <Text style={styles.graytext}>긍정</Text>
+                <View style={styles.info}><Text style={styles.etfname}>Invesco QQQ Trust</Text>
                 <Text style={styles.percent}>3.31%</Text></View></TouchableOpacity>
                 </ScrollView>
             </View>
@@ -68,30 +84,39 @@ const styles = StyleSheet.create({
         flexDirection:'row'
       },
     Button1:{
-        borderRadius:20,
+        borderRadius:18,
         backgroundColor:'red',
         margin:10
     },
     Button2:{
-        borderRadius:20,
-        backgroundColor:'lightblue',
+        borderRadius:18,
+        backgroundColor:'#18A8F1',
         margin:10
     },
     ButtonStyle:{
-        fontSize:20,
-        padding:10,
-        color:'black'
+        fontSize:18,
+        padding:13,
+        color:'white'
+    },
+    personal:{
+        flex:2,
+        alignItems: 'center',
+        padding:25
     },
 
     SecondContainer:{
         flex:2,
-        flexDirection:'row',
         padding:10,
         borderWidth:1,
         borderColor:'gray'
     },
     Inner:{
-        flex:1
+        flex:1,
+        flexDirection:'row'
+    },
+    Inner2:{
+        flex:1,
+        justifyContent:'center'
     },
     ThirdContainer: {
         flex:5.5
@@ -116,14 +141,32 @@ const styles = StyleSheet.create({
     percent:{
         fontSize:19,
         fontWeight:'700',
-        padding:8,
-        flex:1.5,
+        padding:5,
+        flex:2,
         color:'red'
+    },
+    etfname2:{
+        fontSize:19,
+        fontWeight:'700',
+        padding:9,
+        textAlign:'center'
+    },
+    percent2:{
+        fontSize:19,
+        fontWeight:'700',
+        padding:10,
+        color:'red',
+        textAlign:'center'
+    },
+    graytext:{
+        fontSize:12,
+        color:'gray',
+        paddingLeft:10
     },
 
     MenuContainer: {
         flex:0.85,
-        backgroundColor:'rgb(48,101,172)',
+        backgroundColor:'#82CBC4',
         flexDirection:'row'
       },
     MenuButton: {
