@@ -16,7 +16,7 @@ export default function AuthLoadingScreen({ navigation }) {
       // User is not logged in
       navigation.reset({
         index: 0,
-        routes: [{ name: 'StartScreen' }],
+        routes: [{ name: 'Dashboardno' }],
       })
     }
   })

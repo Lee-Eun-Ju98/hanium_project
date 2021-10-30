@@ -30,26 +30,29 @@ export default function externalETFinfo({ navigation }) {
               navigation.navigate('ETFinfo')
             }}
           >
-            <Text>국내ETF</Text>
+            <Text style={styles.InnerText}>국내ETF</Text>
           </TouchableOpacity>
           <TouchableOpacity
-            style={styles.InnerSub}
+            style={styles.Inner2Sub}
             onPress={() => {
               Alert.alert('현재 해외ETF 화면입니다.')
             }}
           >
-            <Text>해외ETF</Text>
+            <Text style={styles.InnerText}>해외ETF</Text>
           </TouchableOpacity>
         </View>
       </View>
+      <View style={styles.blackContainer}></View>
       <View style={styles.SecondContainer}>
         <TextInput
+          style={styles.InnerText}
           type="text"
           placeholder="검색어를 입력해주세요"
           className="prompt"
         />
         <View style={styles.ButtonInner2}></View>
       </View>
+      <View style={styles.blackContainer}></View>
 
       <View style={styles.ThirdContainer}>
         <ScrollView>
@@ -63,9 +66,10 @@ export default function externalETFinfo({ navigation }) {
         <TouchableOpacity
           style={styles.MenuButton}
           onPress={() => {
-            navigation.navigate('Dashboard')
+            navigation.navigate('AuthLoadingScreen')
           }}
         >
+          <Image source={require('../assets/home.png')} style={styles.image} />
           <Text style={styles.ButtonText}>홈</Text>
         </TouchableOpacity>
         <TouchableOpacity
@@ -74,7 +78,11 @@ export default function externalETFinfo({ navigation }) {
             Alert.alert('해당화면 입니다!')
           }}
         >
-          <Text style={styles.ButtonText}>ETF</Text>
+          <Image
+            source={require('../assets/ETFinfo.png')}
+            style={styles.thisimage}
+          />
+          <Text style={styles.thisbutton}>ETF</Text>
         </TouchableOpacity>
         <TouchableOpacity
           style={styles.MenuButton}
@@ -82,6 +90,10 @@ export default function externalETFinfo({ navigation }) {
             navigation.navigate('Simulation')
           }}
         >
+          <Image
+            source={require('../assets/invest.png')}
+            style={styles.image}
+          />
           <Text style={styles.ButtonText}>모의투자</Text>
         </TouchableOpacity>
         <TouchableOpacity
@@ -90,6 +102,10 @@ export default function externalETFinfo({ navigation }) {
             navigation.navigate('Invest')
           }}
         >
+          <Image
+            source={require('../assets/simulation.png')}
+            style={styles.image}
+          />
           <Text style={styles.ButtonText}>투자현황</Text>
         </TouchableOpacity>
         <TouchableOpacity
@@ -98,6 +114,10 @@ export default function externalETFinfo({ navigation }) {
             navigation.navigate('Myprofile')
           }}
         >
+          <Image
+            source={require('../assets/myprofile.png')}
+            style={styles.image}
+          />
           <Text style={styles.ButtonText}>내정보</Text>
         </TouchableOpacity>
       </View>
@@ -111,26 +131,41 @@ const styles = StyleSheet.create({
   },
   FirstContainer: {
     flex: 1,
-    borderWidth: 1,
   },
   SubMenu: {
     flexDirection: 'row',
+    backgroundColor: '#82CBC4',
+  },
+  InnerText: {
+    fontSize: 20,
   },
   InnerSub: {
     flex: 1,
     padding: 25,
-    borderWidth: 1,
+
     alignItems: 'center',
   },
-
-  SecondContainer: {
+  blackContainer: {
+    flex: 0.1,
+    backgroundColor: 'white',
+  },
+  Inner2Sub: {
     flex: 1,
-    borderWidth: 1,
+    padding: 25,
+    borderBottomWidth: 3,
+    alignItems: 'center',
+    backgroundColor: 'white',
+  },
+  SecondContainer: {
+    flex: 0.5,
     flexDirection: 'row',
+    backgroundColor: 'white',
+    borderWidth: 1,
+    borderRadius: 10,
+    marginLeft: 5,
   },
   ButtonInner1: {
     flex: 1,
-    borderWidth: 1,
   },
   ButtonInner2: {
     flex: 2,
@@ -141,7 +176,7 @@ const styles = StyleSheet.create({
 
   ThirdContainer: {
     flex: 7,
-    borderWidth: 1,
+    backgroundColor: 'white',
   },
   Title: {
     fontSize: 20,
@@ -149,8 +184,8 @@ const styles = StyleSheet.create({
   },
 
   MenuContainer: {
-    flex: 0.85,
-    backgroundColor: 'skyblue',
+    flex: 1.1,
+    backgroundColor: '#D3D3D3',
     flexDirection: 'row',
   },
   MenuButton: {
@@ -158,6 +193,31 @@ const styles = StyleSheet.create({
     padding: 20,
   },
   ButtonText: {
+    fontSize: 10,
+    color: 'black',
+    fontWeight: '700',
+    textAlign: 'center',
+  },
+
+  image: {
+    width: 15,
+    height: 15,
+    padding: 15,
+    tintColor: 'black',
+    alignItems: 'center',
+    justifyContent: 'center',
+    marginLeft: 5,
+  },
+  thisimage: {
+    width: 15,
+    height: 15,
+    padding: 15,
+    tintColor: 'white',
+    alignItems: 'center',
+    justifyContent: 'center',
+    marginLeft: 5,
+  },
+  thisbutton: {
     fontSize: 10,
     color: 'white',
     fontWeight: '700',

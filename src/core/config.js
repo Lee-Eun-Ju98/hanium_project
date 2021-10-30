@@ -1,5 +1,6 @@
 //import * as firebase from 'firebase/app';
 import firebase from 'firebase/app';
+import { StyleSheet, Text, View, Image } from 'react-native';
 
 // 사용할 파이어베이스 서비스 주석을 해제합니다
 //import "firebase/auth";

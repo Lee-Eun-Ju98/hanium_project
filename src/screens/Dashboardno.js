@@ -11,6 +11,7 @@ import {
   Image,
   Linking,
 } from 'react-native'
+import { StartScreen } from '.'
 
 export default function Dashboard({ navigation }) {
   const [titles, setTitles] = useState([])
@@ -19,7 +20,6 @@ export default function Dashboard({ navigation }) {
   const [nasdaq, setNasdaq] = useState([])
   const [sp500, setSp500] = useState([])
   const [dollar, setDollar] = useState([])
-  const user = firebase.auth().currentUser
 
   useEffect(() => {
     const dbRef = firebase.database().ref()
@@ -105,39 +105,44 @@ export default function Dashboard({ navigation }) {
       </View>
 
       <View style={styles.FirstContainer}>
-        <Text style={styles.FirstTitle}>{user.displayName}님의 순자산</Text>
-        <Text style={styles.FirstSub}>526,730원(+1.3%)</Text>
+        <Text style={styles.FirstTitle}>
+          로그인 후 모의투자를 이용해보세요.
+        </Text>
+        <TouchableOpacity onPress={() => navigation.navigate(StartScreen)}>
+          <Text style={styles.FirstTitle}>로그인하기 ></Text>
+        </TouchableOpacity>
       </View>
       <View style={styles.blackContainer}></View>
       <View style={styles.SecondContainer}>
-        <Text style={styles.Title}>주요지수</Text>
-
         <View style={styles.zeroContainer}>
-          <View style={styles.MainContainer}>
-            <View style={styles.Info}>
-              <View style={styles.MainContainer}>
-                <Text style={styles.TitleText_1}>KOSPI :</Text>
-                <Text style={styles.TitleText_2_blue}>{kospi.price}</Text>
-                <Text style={styles.TitleText_3_blue}>{kospi.up}</Text>
-              </View>
-              <View style={styles.MainContainer}>
-                <Text style={styles.TitleText_1}>NASDAQ :</Text>
-                <Text style={styles.TitleText_2_red}>{nasdaq.price}</Text>
-                <Text style={styles.TitleText_3_red}>{nasdaq.up}</Text>
+          <Text style={styles.Title}>주요지수</Text>
+          <View style={styles.zeroContainer}>
+            <View style={styles.MainContainer}>
+              <View style={styles.Info}>
+                <View style={styles.MainContainer}>
+                  <Text style={styles.TitleText_1}>KOSPI :</Text>
+                  <Text style={styles.TitleText_2_blue}>{kospi.price}</Text>
+                  <Text style={styles.TitleText_3_blue}>{kospi.up}</Text>
+                </View>
+                <View style={styles.MainContainer}>
+                  <Text style={styles.TitleText_1}>NASDAQ :</Text>
+                  <Text style={styles.TitleText_2_red}>{nasdaq.price}</Text>
+                  <Text style={styles.TitleText_3_red}>{nasdaq.up}</Text>
+                </View>
               </View>
             </View>
-          </View>
-          <View style={styles.MainContainer}>
-            <View style={styles.Info}>
-              <View style={styles.MainContainer}>
-                <Text style={styles.TitleText_1}>S&P500 :</Text>
-                <Text style={styles.TitleText_2_red}>{sp500.price}</Text>
-                <Text style={styles.TitleText_3_red}>{sp500.up}</Text>
-              </View>
-              <View style={styles.MainContainer}>
-                <Text style={styles.TitleText_1}>DOLLAR :</Text>
-                <Text style={styles.TitleText_2_red}>{dollar.price}</Text>
-                <Text style={styles.TitleText_3_red}>{dollar.up}</Text>
+            <View style={styles.MainContainer}>
+              <View style={styles.Info}>
+                <View style={styles.MainContainer}>
+                  <Text style={styles.TitleText_1}>S&P500 :</Text>
+                  <Text style={styles.TitleText_2_red}>{sp500.price}</Text>
+                  <Text style={styles.TitleText_3_red}>{sp500.up}</Text>
+                </View>
+                <View style={styles.MainContainer}>
+                  <Text style={styles.TitleText_1}>DOLLAR :</Text>
+                  <Text style={styles.TitleText_2_red}>{dollar.price}</Text>
+                  <Text style={styles.TitleText_3_red}>{dollar.up}</Text>
+                </View>
               </View>
             </View>
           </View>
@@ -146,7 +151,7 @@ export default function Dashboard({ navigation }) {
       <View style={styles.blackContainer}></View>
       <View style={styles.ThirdContainer}>
         <ScrollView>
-          <Text style={styles.Title_2}>금융 최신 뉴스</Text>
+          <Text style={styles.Title}>금융 최신 뉴스</Text>
           <TouchableOpacity onPress={() => Linking.openURL(href[0])}>
             <Text style={styles.NewsText}>{titles[0]}</Text>
           </TouchableOpacity>

@@ -21,9 +21,13 @@ import {
   externalETFinfo,
   SurveyCompletedScreen,
   BuyETF,
-  SellETF
+  SellETF,
+  Dashboardno,
+  inputNumber,
+  Loading,
 } from './src/screens'
 import { FIREBASE_CONFIG } from './src/core/config'
+import { LogBox } from 'react-native'
 
 const Stack = createStackNavigator()
 if (!firebase.apps.length) {
@@ -31,26 +35,26 @@ if (!firebase.apps.length) {
 }
 
 export default function App() {
+  LogBox.ignoreLogs(['Setting a timer', 'Require cycle'])
+  console.ignoredYellowBox = ['Warning: Each', 'Warning: Failed']
   return (
     <Provider theme={theme}>
       <NavigationContainer>
         <Stack.Navigator
-          initialRouteName="Dashboard"
+          initialRouteName="Loading"
           screenOptions={{
             headerShown: false,
           }}
-
           screenOptions={{
             headerStyle: {
-            backgroundColor: "white",
-            borderBottomColor: "white",
-            shadowColor: "white",
-            height:100
+            backgroundColor: 'white',
+            borderBottomColor: 'white',
+            shadowColor: 'white',
+            height: 100,
             },
-            headerTintColor: "#000",
-            headerBackTitleVisible: false
-            }}
-            
+            headerTintColor: '#000',
+            headerBackTitleVisible: false,
+           }}
         >
           <Stack.Screen
             name="AuthLoadingScreen"
@@ -63,13 +67,19 @@ export default function App() {
           <Stack.Screen name="LoginScreen" component={LoginScreen} />
           <Stack.Screen name="RegisterScreen" component={RegisterScreen} />
           <Stack.Screen name="Dashboard" component={Dashboard} />
+          <Stack.Screen name="Dashboardno" component={Dashboardno} />
           <Stack.Screen name="Invest" component={Invest} />
           <Stack.Screen name="Simulation" component={Simulation} />
           <Stack.Screen name="BuyETF" component={BuyETF} />
           <Stack.Screen name="SellETF" component={SellETF} />
+          <Stack.Screen name="Loading" component={Loading} />
+          <Stack.Screen name="inputNumber" component={inputNumber} />
           <Stack.Screen name="KorDetailPage" component={KorDetailPage} />
           <Stack.Screen name="externalETFinfo" component={externalETFinfo} />
-          <Stack.Screen name="SurveyCompletedScreen" component={SurveyCompletedScreen} />
+          <Stack.Screen
+            name="SurveyCompletedScreen"
+            component={SurveyCompletedScreen}
+          />
           <Stack.Screen
             name="ResetPasswordScreen"
             component={ResetPasswordScreen}

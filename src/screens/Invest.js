@@ -9,13 +9,11 @@ import {
   Alert,
   TouchableOpacity,
   ScrollView,
+  Image,
 } from 'react-native'
 // import data from '../data.json'
 
-import { PieChart } from "react-native-chart-kit";
-
-
-
+import { PieChart } from 'react-native-chart-kit'
 
 export default function Invest({ navigation }) {
   console.disableYellowBox = true
@@ -27,14 +25,14 @@ export default function Invest({ navigation }) {
       <View style={styles.SubContainer}>
         <View style={styles.Inner1}>
           <Text style={styles.Innertitle}>총 보유자산</Text>
-          <Text style={styles.Innertitle2}>10,900,000원 (+9%)</Text>
+          <Text style={styles.Innertitle2}>1,030,370원 (+0.6%)</Text>
         </View>
         <View style={styles.Inner2}>
           <Text style={styles.Innertitle}>투자 ETF 보유 비율</Text>
           <PieChart
             data={[
               {
-                name: 'TIGER 200 IT',
+                name: 'KODEX 200IT TR',
                 population: 21500000,
                 color: '#55A29E',
                 legendFontColor: '#7F7F7F',
@@ -62,7 +60,7 @@ export default function Invest({ navigation }) {
                 legendFontSize: 12,
               },
             ]}
-            width={400}
+            width={350}
             height={200}
             chartConfig={{
               backgroundColor: '#1cc910',
@@ -87,31 +85,34 @@ export default function Invest({ navigation }) {
           <Text style={styles.Innertitle}>ETF 보유자산</Text>
           <ScrollView style={styles.etf}>
             <TouchableOpacity style={styles.etfButton}>
-                <View style={styles.info}><Text style={styles.etfname}>TIGER 200 IT</Text>
-                <Text style={styles.percent}>17.11%</Text></View></TouchableOpacity>
-            <TouchableOpacity style={styles.etfButton}>
-                <View style={styles.info}><Text style={styles.etfname}>KODEX 반도체</Text>
-                <Text style={styles.percent}>10.35%</Text></View>
+              <Text style={styles.etfname}>KODEX 200IT TR</Text>
+              <View style={styles.info}>
+                <Text style={styles.percent}>504,000 </Text>
+                <Text style={styles.percent}>0% </Text>
+              </View>
             </TouchableOpacity>
             <TouchableOpacity style={styles.etfButton}>
-                <View style={styles.info}><Text style={styles.etfname}>SPY SPDR S&P 500 ETF</Text>
-                <Text style={styles.percent}>13.05%</Text></View>
+              <Text style={styles.etfname}>KODEX 반도체</Text>
+              <View style={styles.info}>
+                <Text style={styles.percent}>61,860 </Text>
+                <Text style={styles.percent}>3.1% </Text>
+              </View>
             </TouchableOpacity>
             <TouchableOpacity style={styles.etfButton}>
-                <View style={styles.info}><Text style={styles.etfname}>Invesco QQQ Trust</Text>
-                <Text style={styles.percent}>5.47%</Text></View>
+              <Text style={styles.etfname}>SPY SPDR S&P 500 ETF</Text>
+              <View style={styles.info}>
+                <Text style={styles.percent}>272,970 </Text>
+                <Text style={styles.percent}>1.1% </Text>
+              </View>
+            </TouchableOpacity>
+            <TouchableOpacity style={styles.etfButton}>
+              <Text style={styles.etfname}>Invesco QQQ Trust</Text>
+              <View style={styles.info}>
+                <Text style={styles.percent}>191,900 </Text>
+                <Text style={styles.percent}>0.1% </Text>
+              </View>
             </TouchableOpacity>
           </ScrollView>
-        </View>
-        <View style={styles.Inner4}>
-          <View style={styles.Left}>
-            <Text style={styles.Innertitle}>배당금 예정일</Text>
-            <Text style={styles.Innertitle2}>2021년 12월 13일</Text>
-          </View>
-          <View style={styles.Right}>
-            <Text style={styles.Innertitle}>수수료</Text>
-            <Text style={styles.Innertitle2}>0.9%</Text>
-          </View>
         </View>
       </View>
 
@@ -119,9 +120,10 @@ export default function Invest({ navigation }) {
         <TouchableOpacity
           style={styles.MenuButton}
           onPress={() => {
-            navigation.navigate('Dashboard')
+            navigation.navigate('AuthLoadingScreen')
           }}
         >
+          <Image source={require('../assets/home.png')} style={styles.image} />
           <Text style={styles.ButtonText}>홈</Text>
         </TouchableOpacity>
         <TouchableOpacity
@@ -130,6 +132,10 @@ export default function Invest({ navigation }) {
             navigation.navigate('ETFinfo')
           }}
         >
+          <Image
+            source={require('../assets/ETFinfo.png')}
+            style={styles.image}
+          />
           <Text style={styles.ButtonText}>ETF</Text>
         </TouchableOpacity>
         <TouchableOpacity
@@ -138,6 +144,10 @@ export default function Invest({ navigation }) {
             navigation.navigate('Simulation')
           }}
         >
+          <Image
+            source={require('../assets/invest.png')}
+            style={styles.image}
+          />
           <Text style={styles.ButtonText}>모의투자</Text>
         </TouchableOpacity>
         <TouchableOpacity
@@ -146,7 +156,11 @@ export default function Invest({ navigation }) {
             Alert.alert('해당화면 입니다!')
           }}
         >
-          <Text style={styles.ButtonText}>투자현황</Text>
+          <Image
+            source={require('../assets/simulation.png')}
+            style={styles.thisimage}
+          />
+          <Text style={styles.thisbutton}>투자현황</Text>
         </TouchableOpacity>
         <TouchableOpacity
           style={styles.MenuButton}
@@ -154,6 +168,10 @@ export default function Invest({ navigation }) {
             navigation.navigate('Myprofile')
           }}
         >
+          <Image
+            source={require('../assets/myprofile.png')}
+            style={styles.image}
+          />
           <Text style={styles.ButtonText}>내정보</Text>
         </TouchableOpacity>
       </View>
@@ -164,22 +182,22 @@ export default function Invest({ navigation }) {
 const styles = StyleSheet.create({
   Container: {
     flex: 1,
-    backgroundColor:'white'
+    backgroundColor: 'white',
   },
 
   SubContainer: {
-    flex: 11
+    flex: 11,
   },
 
   Inner1: {
-    flex: 1
+    flex: 1,
   },
   Inner2: {
     flex: 2.5,
     borderWidth: 1,
   },
   Inner3: {
-    flex: 2.5
+    flex: 2.5,
   },
   Inner4: {
     flex: 1,
@@ -187,23 +205,24 @@ const styles = StyleSheet.create({
     borderWidth: 1,
   },
   Left: {
-    flex: 1
+    flex: 1,
   },
   Right: {
-    flex: 1
+    flex: 1,
   },
   Innertitle: {
     fontSize: 15,
     marginTop: 10,
     marginLeft: 10,
-    fontWeight:'700',
-    color:'gray'
+    fontWeight: '700',
+    color: 'gray',
   },
   Innertitle2: {
-    fontSize: 18,
-    textAlign:'center',
-    padding:10,
-    color:'black'
+    fontSize: 30,
+    fontWeight: 'bold',
+    textAlign: 'center',
+    padding: 10,
+    color: 'black',
   },
 
   etf: {
@@ -217,20 +236,19 @@ const styles = StyleSheet.create({
     fontSize: 12,
   },
 
-  info:{
-    flexDirection:'row'
+  info: {
+    flexDirection: 'row',
   },
-  etfname:{
-    fontSize:19,
-    flex:5,
-    padding:5
+  etfname: {
+    fontSize: 19,
+    flex: 5,
+    padding: 5,
   },
-  percent:{
-    fontSize:19,
-    flex:2,
-    color:'red',
-    padding:5,
-    paddingLeft:40
+  percent: {
+    fontSize: 19,
+    flex: 2,
+    color: 'red',
+    textAlign: 'center',
   },
 
   MenuContainer: {
@@ -246,6 +264,46 @@ const styles = StyleSheet.create({
     fontSize: 10,
     color: 'white',
     fontWeight: '700',
-    textAlign: 'center', // text 가운데 위치
+    textAlign: 'center',
+  },
+  MenuContainer: {
+    flex: 1.1,
+    backgroundColor: '#D3D3D3',
+    flexDirection: 'row',
+  },
+  MenuButton: {
+    flex: 1,
+    padding: 20,
+  },
+  ButtonText: {
+    fontSize: 10,
+    color: 'black',
+    fontWeight: '700',
+    textAlign: 'center',
+  },
+
+  image: {
+    width: 15,
+    height: 15,
+    padding: 10,
+    tintColor: 'black',
+    alignItems: 'center',
+    justifyContent: 'center',
+    marginLeft: 5,
+  },
+  thisimage: {
+    width: 15,
+    height: 15,
+    padding: 10,
+    tintColor: 'white',
+    alignItems: 'center',
+    justifyContent: 'center',
+    marginLeft: 5,
+  },
+  thisbutton: {
+    fontSize: 10,
+    color: 'white',
+    fontWeight: '700',
+    textAlign: 'center',
   },
 })

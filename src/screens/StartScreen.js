@@ -9,7 +9,7 @@ export default function StartScreen({ navigation }) {
   return (
     <Background>
       <Logo />
-      <Header>ETF 추천 시스템</Header>
+      <Header>AI 기반 ETF 추천 솔루션</Header>
       <Paragraph>당신에게 맞는 ETF를 알아보세요!</Paragraph>
       <Button
         mode="contained"
